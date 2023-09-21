@@ -3,8 +3,8 @@ import numpy
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Dropout
-from keras.layers.convolutional import Conv2D, MaxPooling2D
-from keras.utils import np_utils
+from keras.layers import Conv2D, MaxPooling2D
+from keras.utils import to_categorical
 from keras import backend as K
 import os
 
@@ -23,8 +23,8 @@ X_test = X_test.reshape(X_test.shape[0], 28, 28, 1).astype('float32')
 
 X_train = X_train / 255
 X_test = X_test / 255
-y_train = np_utils.to_categorical(y_train)
-y_test = np_utils.to_categorical(y_test)
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
 num_classes = y_test.shape[1]
 
 
